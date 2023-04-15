@@ -29,6 +29,7 @@ function Events() {
     // );
     const events = useLoaderData();
     return <EventsList events={events} />;
+    // return <EventsList />;
 }
 
 export default Events;
