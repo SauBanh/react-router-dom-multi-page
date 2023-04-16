@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import EventsList from '../components/EventsList';
@@ -27,7 +27,11 @@ function Events() {
     //         {!isLoading && fetchedEvents && <EventsList events={fetchedEvents} />}
     //     </>
     // );
-    const events = useLoaderData();
+    const data = useLoaderData();
+    // if (data.isError) {
+    //     return <p>{data.message}</p>;
+    // }
+    const events = data.events;
     return <EventsList events={events} />;
     // return <EventsList />;
 }
@@ -35,12 +39,15 @@ function Events() {
 export default Events;
 
 export async function loader() {
-    const response = await fetch('http://localhost:8080/events');
+    const response = await fetch('http://localhost:8080/eventss');
 
     if (!response.ok) {
-        //
+        // return { isError: true, message: 'Could not fetch events' };
     } else {
-        const resData = await response.json();
-        return resData.events;
+        // const resData = await response.json();
+        // const res = new Response('any data', {
+        //     status: 201
+        // })
+        return response;
     }
 }
