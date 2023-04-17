@@ -1,10 +1,11 @@
 import React from 'react';
+import PageContent from '../components/PageContent';
 
 function Home() {
     return (
-        <>
-            <h1>Home</h1>
-        </>
+        <PageContent title="Webcome! Nguyễn Tuấn Anh Đẹp Trai">
+            <p>Browse all our amazing events!</p>
+        </PageContent>
     );
 }
 
